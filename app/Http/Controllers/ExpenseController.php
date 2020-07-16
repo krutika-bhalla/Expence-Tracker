@@ -22,5 +22,8 @@ class ExpenseController extends Controller
         return redirect('/home');
     }
 
-
+    public function showExpenses(){
+        $expenses = Expense::all();
+        return view('home')->with('expenses', $expenses);
+    }
 }
