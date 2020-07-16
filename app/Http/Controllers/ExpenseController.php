@@ -26,4 +26,11 @@ class ExpenseController extends Controller
         $expenses = Expense::all();
         return view('home')->with('expenses', $expenses);
     }
+
+    public function deleteExpense($id){
+        $expense = Expense::find($id);
+//        dd($expense);
+        $expense->delete($id);
+        return redirect()->back();
+    }
 }
