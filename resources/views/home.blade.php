@@ -35,7 +35,7 @@
                                         <td>{{$expense->amount}}</td>
                                         <td>{{ date( 'd/m/Y' , strtotime($expense->created_at)) }}</td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
+                                            <a href="{{route( 'edit-expense', $expense->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
                                             <a href="/home/{{$expense->id}}" class="btn btn-sm btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

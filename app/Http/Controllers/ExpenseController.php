@@ -33,4 +33,9 @@ class ExpenseController extends Controller
         $expense->delete($id);
         return redirect()->back();
     }
+    public function editExpense($id){
+        $expense = Expense::find($id);
+        $expenses = Expense::all();
+        return redirect('edit-expense')->with('expenses', $expenses)->with('expense', $expense);
+    }
 }

@@ -12,9 +12,10 @@
                 <th>Action</th>
                 </thead>
                 <tbody>
+                {{dd($expenses)}}
                 @forelse($expenses as $exp)
                     <tr>
-                        <td align="center">{{ $loop->iteration }}</td>
+                        <td align="center">{{ $exp->iteration }}</td>
                         <td>{{ $exp->item }}</td>
                         <td>{{ $exp->amount }}</td>
                         <td>{{ date('d M Y', strtotime($exp->created_at)) }}</td>
@@ -36,7 +37,7 @@
                 <div class="card-header border-0">
                     <div class="card-title">
                         <p class="text-white">Total Expenses</p>
-                        <h2 class="text-white">RM {{ number_format($total, 2) }}</h2>
+                        <h2 class="text-white">RM</h2>
                     </div>
                 </div>
             </div>
@@ -45,7 +46,7 @@
                     Update {{ $expense->item }}
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('update', $expense) }}" id="form">
+                    <form method="post" action="{{route('edit-expense', $expense->id)}}" id="form">
                         @csrf
                         <div class="form-group">
                             <label for="item">Item</label>
@@ -59,7 +60,7 @@
                     </form>
                 </div>
                 <div class="card-footer border-0 text-right bg-white">
-                    <a href="{{ route('index') }}" class="btn btn-warning">Back</a>
+                    <a href="{{ route('home') }}" class="btn btn-warning">Back</a>
                     <input type="submit" form="form" class="btn btn-primary" value="Save">
                 </div>
             </div>

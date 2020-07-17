@@ -30,4 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home','ExpenseController@showExpenses')->name('showExpenses');
 
     Route::get('/home/{id}', 'ExpenseController@deleteExpense')->name('delete-expense');
+
+    Route::get('/update/{id}', 'ExpenseController@editExpense')->name('edit-expense');
 });
