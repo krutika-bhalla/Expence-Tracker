@@ -33,9 +33,23 @@ class ExpenseController extends Controller
         $expense->delete($id);
         return redirect()->back();
     }
-    public function editExpense($id){
-        $expense = Expense::find($id);
-        $expenses = Expense::all();
-        return redirect('edit-expense')->with('expenses', $expenses)->with('expense', $expense);
+
+    public function updateExpense($id){
+        $expenses = Expense::find($id);
+        $expensesdata = Expense::where('id', $id)->get();
+        //dd($expenses);
+        return view('update')->with('expenses', $expenses)->with('expensesdata', $expensesdata);
+    }
+
+    public function updatedExpense(Request $request)
+    {
+
+            $expense = Expense::find($request->id);
+            $expense->item = $request->item;
+            $expense->amount = $request->amount;
+            $expense->save();
+
+        session()->flash('msg', 'Expense has been edited!');
+        return redirect()->route('updated-expense');
     }
 }

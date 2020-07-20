@@ -3,14 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Expense Tracker') }}</div>
+                    <div class="card-header" align="center"><h1>{{ __('Expense Tracker') }}</h1></div>
 
                     <div class="card-body">
-                        @if (session('status'))
+                        @if (session('msg'))
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                {{ session('msg') }}
                             </div>
                         @endif
                     </div>
@@ -21,21 +21,23 @@
                         <div class="col-md-8 table-responsive">
                             <table class="table table-bordered">
                                 <thead>
-                                <th class="text-center">#</th>
+
                                 <th class="text-center">Item</th>
                                 <th class="text-center">Amount</th>
-                                <th class="text-center">Date</th>
+                                <th class="text-center">Created At</th>
+                                <th class="text-center">Updated At</th>
                                 <th class="text-center">Action</th>
                                 </thead>
                                 <tbody>
                                 @foreach($expenses as $expense)
                                     <tr>
-                                        <td align="center">{{$expense->id}}</td>
+
                                         <td>{{$expense->item}}</td>
                                         <td>{{$expense->amount}}</td>
                                         <td>{{ date( 'd/m/Y' , strtotime($expense->created_at)) }}</td>
+                                        <td>{{ date( 'd/m/Y' , strtotime($expense->updated_at)) }}</td>
                                         <td>
-                                            <a href="{{route( 'edit-expense', $expense->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
+                                            <a href="/update/{{$expense->id}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
                                             <a href="/home/{{$expense->id}}" class="btn btn-sm btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

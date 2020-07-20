@@ -20,7 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
@@ -31,5 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home/{id}', 'ExpenseController@deleteExpense')->name('delete-expense');
 
-    Route::get('/update/{id}', 'ExpenseController@editExpense')->name('edit-expense');
+    Route::get('/update/{id}', 'ExpenseController@updateExpense')->name('update-expense');
+
+    Route::post('/home/{id}', 'ExpenseController@updatedExpense')->name('updated-expense');
 });
