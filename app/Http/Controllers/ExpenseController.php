@@ -7,11 +7,27 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
+    public function index()
+    {
+        $expenses = Expense::latest()
+            ->get();
+        $total = Expense::sum('amount');
+
+        return view('home', [
+            'total' => $total,
+            'expenses' => $expenses,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'item' => 'required',
             'amount' => 'required|numeric',
+        ], [
+            'item.required' => 'Item is required',
+            'amount.required' => 'Amount is required',
+            'amount.numeric' => 'Amount should be number',
         ]);
 
         $expense = new Expense();
@@ -19,37 +35,44 @@ class ExpenseController extends Controller
         $expense->amount = $request->amount;
         $expense->save();
 
-        return redirect('/home');
+        return back();
     }
 
-    public function showExpenses(){
-        $expenses = Expense::all();
-        return view('home')->with('expenses', $expenses);
-    }
-
-    public function deleteExpense($id){
-        $expense = Expense::find($id);
-//        dd($expense);
-        $expense->delete($id);
-        return redirect()->back();
-    }
-
-    public function updateExpense($id){
-        $expenses = Expense::find($id);
-        $expensesdata = Expense::where('id', $id)->get();
-        //dd($expenses);
-        return view('update')->with('expenses', $expenses)->with('expensesdata', $expensesdata);
-    }
-
-    public function updatedExpense(Request $request)
+    public function edit(Expense $expense)
     {
+        // dd($expense);
+        $expenses = Expense::latest()
+            ->get();
+        $total = Expense::sum('amount');
 
-            $expense = Expense::find($request->id);
-            $expense->item = $request->item;
-            $expense->amount = $request->amount;
-            $expense->save();
+        return view('update', [
+            'total' => $total,
+            'expenses' => $expenses,
+            'expense' => $expense,
+        ]);
+    }
 
-        session()->flash('msg', 'Expense has been edited!');
-        return redirect()->route('updated-expense');
+    public function update(Request $request, Expense $expense)
+    {
+        $request->validate([
+            'item' => 'required',
+            'amount' => 'required|numeric',
+        ], [
+            'item.required' => 'Item is required',
+            'amount.required' => 'Amount is required',
+            'amount.numeric' => 'Amount should be number',
+        ]);
+
+        $expense->item = $request->item;
+        $expense->amount = $request->amount;
+        $expense->save();
+
+        return redirect()->route('home');
+    }
+
+    public function delete(Expense $expense)
+    {
+        $expense->delete();
+        return back();
     }
 }

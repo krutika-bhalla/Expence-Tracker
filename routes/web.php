@@ -22,15 +22,14 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::name('home')->get('/home', 'ExpenseController@index');
 
-    Route::post('/home','ExpenseController@store')->name('store');
+    Route::name('store')->post('store', 'ExpenseController@store');
 
-    Route::get('/home','ExpenseController@showExpenses')->name('showExpenses');
-
-    Route::get('/home/{id}', 'ExpenseController@deleteExpense')->name('delete-expense');
-
-    Route::get('/update/{id}', 'ExpenseController@updateExpense')->name('update-expense');
-
-    Route::post('/home/{id}', 'ExpenseController@updatedExpense')->name('updated-expense');
+    Route::name('edit')->get('edit/{expense}', 'ExpenseController@edit');
+    Route::name('update')->post('update/{expense}', 'ExpenseController@update');
+    Route::name('delete')->get('delete/{expense}', 'ExpenseController@delete');
 });
+
+
+
