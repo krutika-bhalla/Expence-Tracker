@@ -37,7 +37,7 @@
                     <div class="card-header border-0">
                         <div class="card-title">
                             <p class="text-white">Total Expenses</p>
-                            <h2 class="text-white">RM {{ number_format($total, 2) }}</h2>
+                            <h2 class="text-white">₹ {{ number_format($total, 2) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                                 @if($errors->has('item')) <span class="text-danger">{{ $errors->first('item') }}</span>@endif
                             </div>
                             <div class="form-group">
-                                <label for="amount">Amount</label>
+                                <label for="amount">Amount (₹)</label>
                                 <input type="number" id="amount" name="amount" placeholder="Enter your amount..." value="{{ $expense->amount }}" class="form-control">
                             </div>
                         </form>

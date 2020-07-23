@@ -67,27 +67,55 @@
 {{--    <div class="flex-center">--}}
 {{--        <h1 class="display-4">K J Somaiya Institute of Engineering and Information Technology</h1>--}}
 {{--    </div>--}}
-        <div class="flex-center">
-            <div class="content">
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content w-95">
                 <div class="title m-b-md">
                     Expense Keeper
                 </div>
+        {{--        <p>--}}
+        {{--            A project to display Zones over India using Data published by Govt. of India.--}}
+        {{--        </p>--}}
+        {{--        <p>--}}
+        {{--            <a href="{{route('map')}}" style="color:blue;">Click here to view Choropleth Map</a>--}}
+        {{--        </p>--}}
+                {{--                <a href="{{asset('assets/data/data.csv')}}">Click here to download CSV data</a>--}}
+                <p class="footer">
+                            <span>
+                                Created by
+                                <a class="link1" href="https://github.com/krutika-bhalla"> Krutika Bhalla</a> &
+                                <a class="link2" href="https://github.com/DhairyaMehta2000"> Dhairya Mehta</a>
+                            </span>
+                </p>
 
-                <div class="links">
-                    @if (Route::has('login'))
-                        <div class="links">
-                            @auth
-                                <a href="{{ url('/home') }}">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Register</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif
-                </div>
+                <style>
+                    .footer {
+                        color: #636b6f;
+                        width: 100%;
+                        /*position: fixed;*/
+                        bottom: 0;
+                        text-align: center;
+                    }
+                    .link1 {
+                        color: #636b6f;
+                    }
+                    .link2 {
+                        color: #636b6f;
+                    }
+                </style>
             </div>
         </div>
     </body>

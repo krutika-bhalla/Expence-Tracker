@@ -77,9 +77,33 @@
     <main class="py-4">
         @yield('content')
     </main>
-    <footer>
+    <p class="footer">
+                    <span>
+                        Created by
+                        <a class="link1" href="https://github.com/krutika-bhalla"> Krutika Bhalla</a> &
+                        <a class="link2" href="https://github.com/DhairyaMehta2000"> Dhairya Mehta</a>
+                    </span>
+    </p>
 
-    </footer>
+    <style>
+        .footer {
+
+            color: #636b6f;
+            width: 100%;
+            /*position: fixed;*/
+            bottom: 0;
+            text-align: center;
+        }
+        .link1 {
+            color: #636b6f;
+        }
+        .link2 {
+            color: #636b6f;
+        }
+        main{
+            min-height: calc(100vh - 55.03px - 50px);
+        }
+    </style>
 </div>
 </body>
 </html>
