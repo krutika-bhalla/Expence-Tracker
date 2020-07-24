@@ -1,5 +1,42 @@
 @extends('layouts.app')
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.6/lib/darkmode-js.min.js"></script>
+    <script>
+        //new Darkmode().showWidget();
+        var options = {
+            bottom: '64px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '32px', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#dbe6c8', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: false, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+    <style>
+        .darkmode--activated table {
+            color: #fff;
+        }
+
+        .button {
+            isolation: isolate;
+        }
+
+        .darkmode--activated .card,  .darkmode--activated .card-footer {
+            background-color: #682eb3;
+            color: white;
+        }
+        .darkmode--activated .card-header{
+            background-color: #682eb3;
+        }
+    </style>
     <div class="container">
         <div class="row px-3 py-5">
             <div class="col-md-8 table-responsive">
@@ -42,7 +79,7 @@
                     </div>
                 </div>
                 <div class="card border-0 shadow">
-                    <div class="card-header bg-white border-0">
+                    <div class="card-header">
                         <h5 style="text-align: center; text-decoration: underline">Update: {{ ucwords($expense->item) }}</h5>
                     </div>
                     <div class="card-body">
@@ -59,9 +96,9 @@
                             </div>
                         </form>
                     </div>
-                    <div class="card-footer border-0 text-right bg-white">
-                        <a href="{{ route('home') }}" class="btn btn-warning">Back</a>
-                        <input type="submit" form="form" class="btn btn-primary" value="Save">
+                    <div class="card-footer">
+                        <a href="{{ route('home') }}" class="btn btn-outline-warning">Back</a>
+                        <input type="submit" form="form" class="btn btn-outline-primary" value="Save">
                     </div>
                 </div>
 

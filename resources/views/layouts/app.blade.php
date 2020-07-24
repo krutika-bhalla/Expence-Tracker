@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://use.fontawesome.com/e120284739.js"></script>
 </head>
+
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -87,7 +88,7 @@
 
     <style>
         .footer {
-
+            background-color: white;
             color: #636b6f;
             width: 100%;
             /*position: fixed;*/
@@ -104,6 +105,7 @@
             min-height: calc(100vh - 55.03px - 50px);
         }
     </style>
+
 </div>
 </body>
 </html>
