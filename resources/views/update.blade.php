@@ -8,11 +8,11 @@
             right: 'unset', // default: '32px'
             left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
-            mixColor: '#dbe6c8', // default: '#fff'
+            mixColor: '#e5e8de', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
             buttonColorDark: '#100f2c',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
-            saveInCookies: false, // default: true,
+            saveInCookies: true, // default: true,
             label: '🌓', // default: ''
             autoMatchOsTheme: true // default: true
         }
@@ -25,16 +25,20 @@
             color: #fff;
         }
 
+        .darkmode--activated .navbar {
+            background-color: #000000;
+        }
+
         .button {
             isolation: isolate;
         }
 
         .darkmode--activated .card,  .darkmode--activated .card-footer {
-            background-color: #682eb3;
+            background-color: #331642;
             color: white;
         }
         .darkmode--activated .card-header{
-            background-color: #682eb3;
+            background-color: #202060;
         }
     </style>
     <div class="container">

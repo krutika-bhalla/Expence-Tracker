@@ -9,11 +9,11 @@
             right: 'unset', // default: '32px'
             left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
-            mixColor: '#dbe6c8', // default: '#fff'
+            mixColor: '#e5e8de', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
             buttonColorDark: '#100f2c',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
-            saveInCookies: false, // default: true,
+            saveInCookies: true, // default: true,
             label: '🌓', // default: ''
             autoMatchOsTheme: true // default: true
         }
@@ -26,16 +26,20 @@
             color: #fff;
         }
 
+        .darkmode--activated #app {
+            color: #000000;
+        }
+
         .button {
             isolation: isolate;
         }
 
         .darkmode--activated .card,  .darkmode--activated .card-footer {
-            background-color: #682eb3;
+            background-color: #331642;
             color: white;
         }
         .darkmode--activated .card-header{
-            background-color: #682eb3;
+            background-color: #202060;
         }
     </style>
     <div class="container">
@@ -74,7 +78,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-5 border-0 shadow bg-primary">
-                    <div class="card-header border-0">
+                    <div class="card-header">
                         <div class="card-title">
                             <p class="text-white">Total Expenses</p>
                             <h2 class="text-white">₹ {{ number_format($total, 2) }}</h2>
@@ -82,7 +86,7 @@
                     </div>
                 </div>
                 <div class="card border-0 shadow">
-                    <div class="card-header ">
+                    <div class="card-header" >
                         New Expenses
                     </div>
                     <div class="card-body">
