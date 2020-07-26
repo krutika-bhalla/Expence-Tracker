@@ -1,7 +1,7 @@
 # Expence-Tracker
 
 <h2>Installation:-</h2>
-<hr>
+
 i. git clone https://github.com/krutika-bhalla/Expence-Tracker <your-project-name>
 ii. cd <your-project-name>
 iii. composer install <br>
