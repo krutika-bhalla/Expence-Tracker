@@ -2,8 +2,8 @@
 
 <h2>Installation:-</h2>
 
-i. git clone https://github.com/krutika-bhalla/Expence-Tracker <your-project-name>
-ii. cd <your-project-name>
+i. git clone https://github.com/krutika-bhalla/Expence-Tracker <your-project-name> <br>
+ii. cd <your-project-name> <br>
 iii. composer install <br>
 iv. Copy from .env.example to .env <br>
 v. Configure your database connection. <br>
