@@ -1,10 +1,13 @@
 # Expence-Tracker
 
 <h3>Installation:-</h3>
-i. composer install <br>
-ii. Copy from .env.example to .env <br>
-iii. Configure your database connection. <br>
-iv. php artisan key:generate <br>
-v. composer dump-autoload <br>
-vi. php artisan config:cache <br>
-vii. php artisan migrate <br>
+<hr>
+i. git clone https://github.com/krutika-bhalla/Expence-Tracker <your-project-name>
+ii. cd <your-project-name>
+iii. composer install <br>
+iv. Copy from .env.example to .env <br>
+v. Configure your database connection. <br>
+vi. php artisan key:generate <br>
+vii. composer dump-autoload <br>
+viii. php artisan config:cache <br>
+ix. php artisan migrate <br>
